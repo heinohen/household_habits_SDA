@@ -10027,19 +10027,31 @@ From the $R^2$ value of 0.7, can be interpred that <code>phonecall</code> explai
 </div>
 </div>
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Spearman rank correlation test is about the association between two ranked variables</p>
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [43]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [56]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">df_events</span> <span class="o">=</span> <span class="n">df_done</span><span class="p">[[</span><span class="s1">'theater'</span><span class="p">,</span><span class="s1">'sport_event'</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"SPEARMAN: </span><span class="si">{</span><span class="n">df_events</span><span class="p">[</span><span class="s1">'theater'</span><span class="p">]</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">df_events</span><span class="p">[</span><span class="s1">'sport_event'</span><span class="p">],</span><span class="n">method</span><span class="o">=</span><span class="s1">'spearman'</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
-<span class="n">df_events</span><span class="p">[</span><span class="s1">'theater'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">df_events</span><span class="p">[</span><span class="s1">'theater'</span><span class="p">])</span><span class="o">.</span><span class="n">rename_categories</span><span class="p">({</span><span class="mi">1</span><span class="p">:</span><span class="s1">'yes'</span><span class="p">,</span><span class="mi">2</span><span class="p">:</span><span class="s1">'no'</span><span class="p">})</span>
 
-<span class="n">df_events</span><span class="p">[</span><span class="s1">'sport_event'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">df_events</span><span class="p">[</span><span class="s1">'sport_event'</span><span class="p">])</span><span class="o">.</span><span class="n">rename_categories</span><span class="p">({</span><span class="mi">1</span><span class="p">:</span><span class="s1">'yes'</span><span class="p">,</span><span class="mi">2</span><span class="p">:</span><span class="s1">'no'</span><span class="p">})</span>
+<span class="c1"># df_events['theater'] = pd.Categorical(df_events['theater']).rename_categories({1:'yes',2:'no'})</span>
+<span class="c1"># df_events['sport_event'] = pd.Categorical(df_events['sport_event']).rename_categories({1:'yes',2:'no'})</span>
 </pre></div>
 </div>
 </div>
@@ -10051,19 +10063,8 @@ From the $R^2$ value of 0.7, can be interpred that <code>phonecall</code> explai
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>/tmp/ipykernel_22066/4092181599.py:3: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  df_events['theater'] = pd.Categorical(df_events['theater']).rename_categories({1:'yes',2:'no'})
-/tmp/ipykernel_22066/4092181599.py:5: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  df_events['sport_event'] = pd.Categorical(df_events['sport_event']).rename_categories({1:'yes',2:'no'})
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>SPEARMAN: 0.148
 </pre>
 </div>
 </div>
@@ -10074,7 +10075,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [44]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [57]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">df_events</span>
@@ -10088,7 +10089,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[44]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[57]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div>
 <style scoped="">
@@ -10115,28 +10116,28 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <tbody>
 <tr>
 <th>0</th>
-<td>no</td>
-<td>yes</td>
+<td>2</td>
+<td>1</td>
 </tr>
 <tr>
 <th>1</th>
-<td>no</td>
-<td>yes</td>
+<td>2</td>
+<td>1</td>
 </tr>
 <tr>
 <th>2</th>
-<td>yes</td>
-<td>yes</td>
+<td>1</td>
+<td>1</td>
 </tr>
 <tr>
 <th>3</th>
-<td>yes</td>
-<td>yes</td>
+<td>1</td>
+<td>1</td>
 </tr>
 <tr>
 <th>4</th>
-<td>yes</td>
-<td>no</td>
+<td>1</td>
+<td>2</td>
 </tr>
 <tr>
 <th>...</th>
@@ -10145,28 +10146,28 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </tr>
 <tr>
 <th>680</th>
-<td>yes</td>
-<td>no</td>
+<td>1</td>
+<td>2</td>
 </tr>
 <tr>
 <th>681</th>
-<td>yes</td>
-<td>no</td>
+<td>1</td>
+<td>2</td>
 </tr>
 <tr>
 <th>682</th>
-<td>yes</td>
-<td>yes</td>
+<td>1</td>
+<td>1</td>
 </tr>
 <tr>
 <th>683</th>
-<td>yes</td>
-<td>yes</td>
+<td>1</td>
+<td>1</td>
 </tr>
 <tr>
 <th>684</th>
-<td>no</td>
-<td>no</td>
+<td>2</td>
+<td>2</td>
 </tr>
 </tbody>
 </table>
@@ -10192,12 +10193,10 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [45]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [58]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># two categorical variables --&gt; use Pearson's Chi-squared test</span>
-
-<span class="n">counts_of_categories</span> <span class="o">=</span> <span class="n">df_events</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="o">.</span><span class="n">value_counts</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">counts_of_categories</span> <span class="o">=</span> <span class="n">df_events</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="o">.</span><span class="n">value_counts</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -10208,7 +10207,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [46]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [59]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">counts_of_categories</span>
@@ -10222,7 +10221,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[46]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[59]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div>
 <style scoped="">
@@ -10248,12 +10247,12 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </thead>
 <tbody>
 <tr>
-<th>yes</th>
+<th>1</th>
 <td>344</td>
 <td>312</td>
 </tr>
 <tr>
-<th>no</th>
+<th>2</th>
 <td>341</td>
 <td>373</td>
 </tr>
@@ -10269,7 +10268,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [47]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [60]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">S</span><span class="o">.</span><span class="n">chi2_contingency</span><span class="p">(</span><span class="n">counts_of_categories</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
@@ -10283,7 +10282,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[47]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[60]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>0.09362715548694542</pre>
 </div>
@@ -10297,7 +10296,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion">¶</a></h3><p>High p-value, over the 95% where alpha then is 0.05 indicates that there is no evidence to the claim that there is association between the two categorical variables.</p>
+<h3 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion">¶</a></h3><p>Spearman value of 0.148 indicates that there is hardly any correlation between the categorical values. High p-value, over the 95% where alpha then is 0.05 indicates that there is no evidence to the claim that there is association between the two categorical variables.</p>
 </div>
 </div>
 </div>
